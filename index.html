@@ -3,15 +3,76 @@
 <html lang="it" prefix="og: http://ogp.me/ns#">
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173464728-1"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js" data-cfasync="false"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+var popup;
+window.addEventListener('load', function(){
+  window.cookieconsent.initialise({
+   //set revokeBtn if you don't want to see a tiny pullup bar overlapping your website
+   //if revokeBtn is set, make sure to include a link to cookie settings in your footer
+   //you can open your banner again with: popup.open();
+   //revokeBtn: "<div class='cc-revoke'></div>",
+   type: "opt-in",
+   theme: "classic",
+   palette: {
+       popup: {
+           background: "#000",
+           text: "#fff"
+        },
+       button: {
+           background: "#fd0",
+           text: "#000"
+        }
+    },
+    onInitialise: function(status) {
+      // request gtag.js on page-load when the client already consented
+      if(status == cookieconsent.status.allow) setCookies();
+    },
+    onStatusChange: function(status) {
+      // resquest gtag cookies on a new consent
+      if (this.hasConsented()) setCookies();
+      else deleteCookies(this.options.cookie.name)
+    },
+/* enable this to hide the cookie banner outside GDPR regions
+    law: {
+      regionalLaw: false,
+    },
+    location: true,
+    },
+*/
+    function (p) {
+        popup = p;
+  })
+});
 
-  gtag('config', 'UA-173464728-1');
+//it is absolutely crucial to define gtag in the global scope
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-173464728-1', {'anonymize_ip': true});
+
+function setCookies() {
+    var s = document.createElement('script');
+    s.type = "text/javascript"
+    s.async = "true";
+    s.src = "https://www.googletagmanager.com/gtag/js?id=UA-173464728-1";
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+
+    // you can add facebook-pixel and other cookies here
+};
+
+function deleteCookies(cookieconsent_name) {
+        var keep = [cookieconsent_name, "DYNSRV"];
+
+        document.cookie.split(';').forEach(function(c) {
+            c = c.split('=')[0].trim();
+            if (!~keep.indexOf(c))
+                document.cookie = c + '=;' + 'expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';
+        });
+};
 </script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sono uscite le date della sessione primaverile oggi&#63;</title>
