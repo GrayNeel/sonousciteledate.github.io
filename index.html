@@ -34,15 +34,9 @@ window.addEventListener('load', function(){
       if (this.hasConsented()) setCookies();
       else deleteCookies(this.options.cookie.name)
     },
-/* enable this to hide the cookie banner outside GDPR regions
-    law: {
-      regionalLaw: false,
-    },
-    location: true,
-    },
-*/
     function (p) {
         popup = p;
+    }
   })
 });
 
