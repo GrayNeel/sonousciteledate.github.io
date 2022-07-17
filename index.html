@@ -2,71 +2,6 @@
 <!-- GrayNeel -->
 <html lang="it" prefix="og: http://ogp.me/ns#">
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js" data-cfasync="false"></script>
-<script>
-var popup;
-window.addEventListener('load', function(){
-  window.cookieconsent.initialise({
-   //set revokeBtn if you don't want to see a tiny pullup bar overlapping your website
-   //if revokeBtn is set, make sure to include a link to cookie settings in your footer
-   //you can open your banner again with: popup.open();
-   //revokeBtn: "<div class='cc-revoke'></div>",
-   type: "opt-in",
-   theme: "classic",
-   palette: {
-       popup: {
-           background: "#fff",
-           text: "#000"
-        },
-       button: {
-           background: "#fd0",
-           text: "#000"
-        }
-    },
-    onInitialise: function(status) {
-      // request gtag.js on page-load when the client already consented
-      if(status == cookieconsent.status.allow) setCookies();
-    },
-    onStatusChange: function(status) {
-      // resquest gtag cookies on a new consent
-      if (this.hasConsented()) setCookies();
-      else deleteCookies(this.options.cookie.name)
-    },
-    function (p) {
-        popup = p;
-    }
-  })
-});
-
-//it is absolutely crucial to define gtag in the global scope
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'UA-173464728-1', {'anonymize_ip': true});
-
-function setCookies() {
-    var s = document.createElement('script');
-    s.type = "text/javascript"
-    s.async = "true";
-    s.src = "https://www.googletagmanager.com/gtag/js?id=UA-173464728-1";
-    var x = document.getElementsByTagName('script')[0];
-    x.parentNode.insertBefore(s, x);
-
-    // you can add facebook-pixel and other cookies here
-};
-
-function deleteCookies(cookieconsent_name) {
-        var keep = [cookieconsent_name, "DYNSRV"];
-
-        document.cookie.split(';').forEach(function(c) {
-            c = c.split('=')[0].trim();
-            if (!~keep.indexOf(c))
-                document.cookie = c + '=;' + 'expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';
-        });
-};
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sono uscite le date della sessione autunnale oggi&#63;</title>
@@ -87,7 +22,6 @@ function deleteCookies(cookieconsent_name) {
 <meta name="robots" content="index, nofollow">
 <link rel="icon" href="favicon.png" type="image/png" /><style type="text/css">::-webkit-scrollbar{width:4px;} ::-webkit-scrollbar-track{background:transparent;} ::-webkit-scrollbar-thumb{background:#f4f4f4;}::-webkit-scrollbar-thumb:hover{background: #efefef;} body{color: #fff; font-size:12px;font-family: 'Roboto Condensed', arial, sans-serif;background: rgb(21, 55, 82);overflow-x: hidden;}h1{text-align: center; font-size: 14vw;margin: 16% 0 0 0;}a{color: rgba(255, 255, 255, 0.8);text-decoration: none;text-transform: uppercase;font-size: 12px;}a:hover{text-decoration: underline;}.response{margin: 0 auto;text-align: center;}.footer{color: rgba(255, 255, 255, 0.8);text-align: center;height: 42px;position:absolute;bottom: 0;left: 0;right: 0;width: 100%;line-height: 42px;}</style>
 <link rel="canonical" href="http://www.sonousciteledate.it" />
-<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-161585834-1');</script>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400&display=swap" rel="stylesheet"></head>
 <body>
 <section itemscope>
